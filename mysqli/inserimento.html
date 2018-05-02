@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<meta name="description" content="inserimento dati, valorizzazioen tabella1, database prova" />
+	<meta name="keywords" content="Invio dati php, programma php valorizzazione tabella1 "/>
+
+	<meta name="author" content="Pasquale Macchiavelli" />
+
+	<title>  
+	Inserimento dati anagrafici
+	</title>
+<style>
+table, th, td, legend {
+    border: 2px solid green;
+	padding: 5px;
+	font-style: verdana;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+	<fieldset >
+    
+	<form	 name="dati" action="insert.php" method="post">
+		<table>
+		<tr>
+				<td>	Nome: <input type="text" name="nome"> 		</td>
+				<td>	Cognome: <input type="text" name="cognome">	</td>
+		</tr>
+		<tr>	<td> 	Eta: <input type="text" name="eta"> 	</td>	
+				<td>	<input type="submit"> 					</td>
+		</tr>
+		</table>
+	</form>
+	
+</body>
+</html>
