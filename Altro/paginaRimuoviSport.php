@@ -16,7 +16,7 @@
 			// controllo con errore
         }
 
-echo "<form action = 'Sport.php' method = 'post'>";
+echo "<form action = 'RimuoviSport.php' method = 'post'>";
     echo "<table>";
 
     $j = 0;
@@ -33,20 +33,8 @@ echo "<form action = 'Sport.php' method = 'post'>";
     }
 
     echo "</table>";
-    echo "<input type = 'submit' value = 'Invia'>";
+    echo "<input type = 'submit' value = 'Rimuovi'>";
 echo "</form>";
 ?>
-
-<form name="dati" action="AggiungiSport.php" method="post">
-    <table>
-      <tr>
-          <td><input type = "submit" value = "Aggiungi"> sport mancante</td>
-      </tr>
-    </table>
-</form>
-
-
-
-</body>
-
+    </body>
 <html>

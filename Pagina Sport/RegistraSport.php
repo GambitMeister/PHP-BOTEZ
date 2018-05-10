@@ -1,6 +1,5 @@
 <?php
-
-  $conn = mysqli_connect("localhost", "root", "","datiutenti"); // definizione alla connessione a mysql
+  $conn = mysqli_connect("localhost", "root", "","Sport"); // definizione alla connessione a mysql
   if (!$conn){
 
       die("Connessione a Mysql non riuscita " . mysqli_connect_errno());
@@ -8,7 +7,7 @@
   }
 
   $dato = $_POST['sport'];
-  $query = "select * from sport";
+  $query = "select * from dati";
   if (!$conn){
 
       die("Connessione a Mysql non riuscita " . mysqli_connect_errno());
@@ -23,14 +22,14 @@
 
   }else{
 
-  $query = "ALTER TABLE sport AUTO_INCREMENT = $num";
+  $query = "ALTER TABLE dati AUTO_INCREMENT = $num";
   $Risultato = mysqli_query($conn, $query);
   if (!$Risultato){
 
       die("Dato non inserito" . mysqli_connect_errno());
 
   }else{
-  $query = "INSERT INTO sport (id, NomeSport, nVoti) VALUES (NULL, '$dato' , 0)";
+  $query = "INSERT INTO dati (id, nome, voti) VALUES (NULL, '$dato' , 0)";
   $Risultato = mysqli_query($conn, $query);
   if (!$Risultato){
 
@@ -40,7 +39,5 @@
 }
 header("Location:paginaSport.php");
 exit;
-
 }
-
 ?>
