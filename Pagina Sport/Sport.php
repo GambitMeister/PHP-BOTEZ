@@ -9,13 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-    
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="vw">VW</option>
-  <option value="audi" selected>Audi</option>
-</select>
 <?PHP
     $ip = "localhost";
     $user = "root";
@@ -28,7 +21,7 @@
 		die("Connessione a Mysql non riuscita " . mysqli_connect_errno());
 	}
 
-    $bottoni = ($_POST['bottoni']);
+    $bottoni = $_POST['bottoni'];
 
         $Risultato=mysqli_query($conn,"select * from dati");
         if (!$Risultato)
