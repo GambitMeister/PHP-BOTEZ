@@ -7,25 +7,48 @@
 	<title>
 	Inserimento dati anagrafici
 	</title>
+<style>
+
+	body{
+
+		background-color:coral;
+	
+	}
+	div{
+
+		background-color:cornflowerblue;
+		border-radius:1em;
+		
+	}
+	form{
+		
+		border: red solid;
+		width: 50%;
+		margin:0 auto;
+
+	}
 
 </style>
 </head>
 <body>
-
-
+	
+		<div>
 	<form name="dati" action="Login.php" method="post">
 			<table>
 				<tr>
-                <td>Username: </td><td><input type="text" name="usr"></td>
+                <td>	<input type="text" name="usr" placeholder = "username"></td>
 				</tr>
 				<tr>
-						<td>Password </td> <td><input type = "password" name = "psw"> </td>
+					
+						<td><input type = "password" name = "psw" placeholder = "password"> </td>
 				</tr>
 				<tr>
-						<td>Login </td> <td><input type = "submit" value = "Login"></td>
+						<td><input type = "submit" value = "Login"></td>
 				</tr>
 			</table>
-			</form>
-
+	</form>
+		</div>
+	
+			
 </body>
 </html>

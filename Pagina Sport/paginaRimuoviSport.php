@@ -15,7 +15,6 @@
 			die("La tabella selezionata non esiste " . mysqli_connect_errno());
 			// controllo con errore
         }
-
 echo "<form action = 'RimuoviSport.php' method = 'post'>";
     echo "<table>";
 
