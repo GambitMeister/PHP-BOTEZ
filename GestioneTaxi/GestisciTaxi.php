@@ -25,6 +25,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+
+<script type="text/javascript">
+    function showStuff(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function getSelect() {
+        var x = document.getElementById("Select").value;
+        return x;
+    }
+
+</script>
+
 </head>
 <body>
 <div>
@@ -45,7 +59,7 @@
         }
     
     ?>
-    <select>
+    </select>
         <input type = "text" maxlength = "50" placeholder = "Inserire destinazione del taxi" name = "destinazione">
         <input type ="submit" value = "Impegna">
     </form>
@@ -53,14 +67,12 @@
 
     
 
-    <!--asdsadaddasd-->
-
 <div>
     <form method = "POST" action = "LiberaTaxi.php">
         <label>
             Taxi Impegnati:
         </label>
-        <select name = "taxiSelezionato">
+        <select name = "taxiSelezionato" id = "Select">
     <?PHP
     
         $query = "select * from taxi where impegnato = '1'";
@@ -73,10 +85,28 @@
         }
     
     ?>
-    <select>
+    </select>
     
         <input type ="submit" value = "Libera">
     </form>
-<div>
+</div>
+<a href="#" onclick="showStuff('visChiamate'); return false;">Mostra chiamate</a>
+<div id="visChiamate" style="display: none;">
+    
+    <table>
+        <?PHP 
+            
+            $query = "select T.nome, C.destinazione from taxi T, chiamate C where C.idTaxi = T.idTaxi AND T.impegnato = '1'";
+            $ris = mysqli_query($conn, $query);
+
+            while($riga = mysqli_fetch_array($ris)){
+
+                echo("<tr> <td>". $riga[0] ."</td> <td> ". $riga[1] ." </td> </tr>");
+
+            }
+        ?>
+    </table>
+               
+</div>
 </body>
 </html>

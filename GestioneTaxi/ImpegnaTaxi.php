@@ -12,8 +12,8 @@
     $query = "update taxi set impegnato = '1' where idTaxi =' ". $daImpegnare. "'";
     mysqli_query($conn, $query);
 
-    $query = "INSERT INTO chiamate (idTaxi, destinazione) VALUES ($daImpegnare, $destinazione);";
-
+    $query = "INSERT INTO chiamate (idTaxi, destinazione) VALUES ('$daImpegnare', '$destinazione');";
+    mysqli_query($conn, $query);
     header("Location:GestisciTaxi.php");
     exit;
 ?>
