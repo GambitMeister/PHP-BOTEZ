@@ -10,27 +10,37 @@
 
 
 
-        $Risultato=mysqli_query($conn,"select * from dati where username = $usr"); // estraggo autore dal database
+        $Risultato=mysqli_query($conn,"select * from dati"); // estraggo autore dal database
 		if (!$Risultato)
 		{
 			die("La tabella selezionata non esiste " . mysqli_connect_errno());
 			// controllo con errore
         }
 
-        if($psw = mysqli_fetch_array($Risultato)[2]){
+		while ($riga=mysqli_fetch_array($Risultato)){
 
-			header("Location:UserPage.php");
-			exit;
+			if($riga[2] == $psw){
 
-        }
-		//utilizzo dei dati
+				header("Location:UserPage.php");
+				exit;
+			}
+
+		}
 		echo "<td> id </td> <td> nome </td><td> cognome </td> <td> eta </td>";
 
+		$Risultato=mysqli_query($conn,"select * from dati"); // estraggo autore dal database
+		if (!$Risultato)
+		{
+			die("La tabella selezionata non esiste " . mysqli_connect_errno());
+			// controllo con errore
+        }
+		echo "<table>";
 		while ($riga=mysqli_fetch_array($Risultato))
 		{
 			echo "<tr>";
-			for($i=0; $i<4; $i++)
+			for($i=0; $i<3; $i++)
                      echo "<td>". $riga[$i] . "</td>" ;
 			echo "</tr>";
 		}
+		echo "</table>";
 	?>

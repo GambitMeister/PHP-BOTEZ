@@ -2,14 +2,14 @@
     $ip = "localhost";
     $user = "root";
     $psw = "";
-    $database = "Sport";
+    $database = "datiutenti";
 
     $conn=mysqli_connect("localhost", "root", "",$database); // definizione alla connessione a mysql
 	if (!$conn)
 	{
 		die("Connessione a Mysql non riuscita " . mysqli_connect_errno());
 	}
-    $Risultato=mysqli_query($conn,"select * from dati "); // estraggo autore dal database
+    $Risultato=mysqli_query($conn,"select * from Sport "); // estraggo autore dal database
 		if (!$Risultato)
 		{
 			die("La tabella selezionata non esiste " . mysqli_connect_errno());

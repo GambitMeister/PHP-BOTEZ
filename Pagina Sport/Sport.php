@@ -11,7 +11,7 @@
     $ip = "localhost";
     $user = "root";
     $psw = "";
-    $database = "Sport";
+    $database = "datiutenti";
 
     $conn=mysqli_connect("localhost", "root", "",$database);
 	if (!$conn)
@@ -21,7 +21,7 @@
 
     $bottoni = $_POST['bottoni'];
 
-        $Risultato=mysqli_query($conn,"select * from dati");
+        $Risultato=mysqli_query($conn,"select * from sport");
         if (!$Risultato)
         {
           die("La tabella selezionata non esiste " . mysqli_connect_errno());
