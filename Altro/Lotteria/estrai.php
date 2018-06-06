@@ -4,16 +4,26 @@
             Estrai
         </title>
         <style>
-            table, th, td {
-                border: 2px solid green;
-                padding: 5px;
-                font-size: 16px;
+            table.blueTable {
+                font-family: "Comic Sans MS", cursive, sans-serif;
+                border: 2px solid #1C6EA4;
+                border-collapse: collapse;
             }
+            table.blueTable td, table.blueTable th {
+                border: 2px solid #1C6EA6;
+                padding: 5px 5px;
+            }
+            table.blueTable tbody td {
+                font-weight: bold;
+            }
+
         </style>
-    </head>
-    <body>  
+        
+        </head>
+
+        <body>  
             <form>
-                <table align = "center">
+                <table align = "center" class = "blueTable">
                     <th>
                         Numeri Scelti da te
                     </th>

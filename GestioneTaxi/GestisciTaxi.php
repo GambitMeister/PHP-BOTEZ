@@ -26,42 +26,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-
-<script type="text/javascript">
-    function showStuff(id) {
-      document.getElementById(id).style.display = 'block';
-    }
-
-    function getSelect() {
-        var x = document.getElementById("Select").value;
-        return x;
-    }
-
-</script>
-
 </head>
 <body>
 <div>
 <form method = "POST" action =  "ImpegnaTaxi.php">
-        <label>
-            Taxi Liberi:
-        </label>
-        <select name = "taxiSelezionato" value = "taxiSelezionato">
+        
+        
     <?PHP
-    
+
+        
         $query = "select * from taxi where impegnato = '0'";
         $ris = mysqli_query($conn, $query);
-
+        $i = 0;
+        while($riga = mysqli_fetch_array($ris)){
+            $i++;
+        }
+        if($i > 0){
+            echo("<label>
+                    Taxi Liberi:
+                </label>");
+            echo("<select name = 'taxiSelezionato' value = 'taxiSelezionato'>");
+            $ris = mysqli_query($conn, $query);
         while($riga = mysqli_fetch_array($ris)){
             
             echo("<option value = '$riga[0]'>".  $riga[1] ."</option>");
             
         }
-    
+        
+        echo("</select>
+        <input type = 'text' maxlength = '50' placeholder = 'Inserire destinazione del taxi' name = 'destinazione' required>
+        <input type ='submit' value = 'Impegna'>");
+
+    }else{
+
+        echo("<label> Non ci sono taxi liberi al momento...</label>");
+
+    }
     ?>
-    </select>
-        <input type = "text" maxlength = "50" placeholder = "Inserire destinazione del taxi" name = "destinazione">
-        <input type ="submit" value = "Impegna">
+    
     </form>
     <div>
 
@@ -69,29 +71,44 @@
 
 <div>
     <form method = "POST" action = "LiberaTaxi.php">
-        <label>
-            Taxi Impegnati:
-        </label>
-        <select name = "taxiSelezionato" id = "Select">
+        
+        
     <?PHP
     
         $query = "select * from taxi where impegnato = '1'";
         $ris = mysqli_query($conn, $query);
-
+        
+        $i = 0;
+        while($riga = mysqli_fetch_array($ris)){
+            $i++;
+        }
+        if($i > 0){
+            echo("<label> Taxi Liberi: </label> <select name = 'taxiSelezionato' id = 'Select'>");
+            
+            $ris = mysqli_query($conn, $query);
         while($riga = mysqli_fetch_array($ris)){
             
             echo("<option value = '$riga[0]'>".  $riga[1] ."</option>");
             
         }
+        echo("</select>
+        
+        <input type ='submit' value = 'Libera'>");
+
+    }else{
+
+        echo("<label> Non ci sono taxi occupati al momento...</label>");
+
+    }
+
+    
     
     ?>
-    </select>
     
-        <input type ="submit" value = "Libera">
     </form>
 </div>
-<a href="#" onclick="showStuff('visChiamate'); return false;">Mostra chiamate</a>
-<div id="visChiamate" style="display: none;">
+
+<div>
     
     <table>
         <?PHP 
