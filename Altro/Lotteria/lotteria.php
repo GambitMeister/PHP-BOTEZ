@@ -18,12 +18,21 @@
   border: 2px solid #1C6EA4;
   border-collapse: collapse;
 }
+<<<<<<< HEAD
 	table.blueTable td, table.blueTable th {
 	border: 2px solid #1C6EA6;
 	padding: 5px 5px;
 }
 	table.blueTable tbody td {
 	font-weight: bold;
+=======
+table.blueTable td, table.blueTable th {
+  border: 2px solid #1C6EA6;
+  padding: 5px 5px;
+}
+table.blueTable tbody td {
+  font-weight: bold;
+>>>>>>> 5999fd33e200d4269a9be1190dc8bc45fb0ffc70
 }
 
     </style>
@@ -54,7 +63,11 @@
 	<br>
 	<br>
 		<div align = "center" >
+<<<<<<< HEAD
 		  	<input name = "Invia" type = "submit" value = "Invia">
+=======
+		  	<input id = "" name = "invia" type = "submit" value = "invia">
+>>>>>>> 5999fd33e200d4269a9be1190dc8bc45fb0ffc70
 		</div>
 	</form>
 </body>
